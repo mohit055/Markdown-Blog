@@ -1,0 +1,19 @@
+<h1 class="my-4" style="font-size: 55px;">Blog Articles</h1>
+<a href="/articles/new"><button class="btn btn-success mb-4">Create New Article?</button></a>
+<a href="/"><button class="btn btn-dark mb-4">Home</button></a>
+<% articles.forEach(article => { %>
+<div class="card mb-4">
+    <div class="card-body">
+        <div class="card-title">
+            <h3 class="text-black"><%= article.title.toUpperCase() %>- <%= article.writer %></h3>
+        </div>
+        <div class="card-subtitle text-muted mb-2"><%= article.createdAt.toLocaleDateString() %></div>
+        <div class="card-text mb-2"><%= article.description %></div>
+        <a href="/articles/<%= article.slug %>" class="btn btn-primary">Read More</a>
+        <a href="/articles/edit/<%= article.id %>" class="btn btn-secondary">Edit</a>
+        <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+    </div>
+</div>
+<% }); %>

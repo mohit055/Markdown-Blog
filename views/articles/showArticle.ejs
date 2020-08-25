@@ -1,0 +1,15 @@
+<h1 class="my-4" style="font-size: 50px;"><%= article.title.toUpperCase() %> - <%= article.writer %></h1>
+<div class="text-muted mb-2"><%= article.createdAt.toLocaleDateString() %></div>
+<a href="/articles" class="btn btn-secondary mb-4">All Articles</a>
+<a href="/articles/edit/<%= article.id %>" class="btn btn-warning mb-4">Edit</a>
+<div class="mb-4" style="font-size: 20px;"><%- article.sanitizedHTML %></div>
+<div style="text-align: center;">
+    <button onclick="topFunction()" class="btn btn-outline-secondary mb-5" style="font-size: 16px;">On Top ⬆️</button>
+</div>
+
+<script>
+    function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera 
+    }
+</script>
